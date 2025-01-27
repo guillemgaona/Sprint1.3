@@ -21,7 +21,7 @@ print_r($X);
 
 // Lvl 1 Ex 3
 
-function containsLetter($words, $letter) {
+/* function containsLetter($words, $letter) {
     $timesfind = 0;
 
     for($i=0; $i < count($words); $i++) {
@@ -35,8 +35,19 @@ function containsLetter($words, $letter) {
             $j++;
         }
     }
-    return $timesfind == count($words) ? "true" : "false";
+    return $timesfind == count($words) ? "true" : "false"; 
+} */
+function containsLetter($words, $letter) {
+    $letter=strtolower($letter);
+    $isContaining = "true";
+    for($i=0; $i < count($words); $i++) {
+        if (!str_contains(strtolower($words[$i]),$letter)) {
+            $isContaining = "false";
+        } 
+    }
+    return $isContaining;
 }
+
 echo "<br>";
 $arrayExemple = array("hola", "Php", "Html");
 echo containsLetter($arrayExemple, "h") . "<br>";
